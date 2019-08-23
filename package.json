@@ -4,7 +4,7 @@
   "description": "Express and GraphQL API for Bucket List App, hosted in AWS.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon --exec NODE_ENV=development babel-node index.js"
   },
   "author": "Jeff Wong",
   "license": "MIT",
