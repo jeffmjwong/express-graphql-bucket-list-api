@@ -1,0 +1,11 @@
+{
+  "name": "express-graphql-bucket-list-api",
+  "version": "1.0.0",
+  "description": "Express and GraphQL API for Bucket List App, hosted in AWS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeff Wong",
+  "license": "MIT"
+}
