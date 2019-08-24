@@ -4,7 +4,7 @@
   "description": "Express and GraphQL API for Bucket List App, hosted in AWS.",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon --exec NODE_ENV=development babel-node index.js",
+    "start:dev": "nodemon --exec NODE_ENV=development babel-node src/index.js",
     "prebuild": "rm -rf build",
     "build": "webpack --config webpack.config.babel.js",
     "start:prod": "npm run build && node build/bundle.js"
