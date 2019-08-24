@@ -7,7 +7,7 @@ export default {
   entry: path.resolve(__dirname, 'index.js'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build2')
+    path: path.resolve(__dirname, 'build')
   },
   optimization: {
     minimizer: [
