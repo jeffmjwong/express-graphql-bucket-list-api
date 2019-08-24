@@ -1,4 +1,5 @@
 import path from 'path';
+import terserWebpackPlugin from 'terser-webpack-plugin';
 
 export default {
   mode: 'production',
@@ -6,6 +7,14 @@ export default {
   entry: path.resolve(__dirname, 'index.js'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build2')
+  },
+  optimization: {
+    minimizer: [
+      new terserWebpackPlugin({
+        cache: true,
+        parallel: true
+      })
+    ]
   }
 };
