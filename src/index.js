@@ -58,23 +58,3 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Express server is now ready at http://localhost:${port}${graphqlServer.graphqlPath}`);
 });
-
-
-// app.get('/node-env', (req, res) => {
-//   res.send(process.env.NODE_ENV);
-// });
-
-// app.get('/lists', (req, res) => {
-//   db.any('SELECT * FROM bucket_items')
-//     .then(data => {
-//       console.log(data);
-//       res.json(data);
-//     })
-//     .catch(error => {
-//       console.log(err);
-//     });
-// });
-
-// app.listen(port, () => {
-//   console.log(`Express server is now listening on port ${port}...`)
-// });
