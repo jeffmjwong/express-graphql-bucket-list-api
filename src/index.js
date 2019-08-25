@@ -10,10 +10,11 @@ const typeDefs = gql`
   type Query {
     hello: String,
     bucketItems: [BucketItem],
+    bucketItem(id: ID!): BucketItem,
   }
 
   type BucketItem {
-    id: ID,
+    id: ID!,
     title: String,
     summary: String,
     completed_at: String,
@@ -28,25 +29,23 @@ const resolvers = {
     bucketItems: async () => {
       try {
         const data = await db.any('SELECT * FROM bucket_items');
-        console.log(data);
         return data;
       } catch(err) {
         console.log(err);
       }
-      // db.any('SELECT * FROM bucket_items')
-      //   .then(data => {
-      //     console.log(data);
-      //     return data;
-      //   })
-      //   .catch(error => {
-      //     console.log(err);
-      //   });
     },
+    bucketItem: async (parent, args, context, info) => {
+      try {
+        const data = await db.one('SELECT * FROM bucket_items WHERE id = $1', [args.id]);
+        return data;
+      } catch(err) {
+        console.log(err);
+      }
+    }
   },
 };
 
 const graphqlServer = new ApolloServer({ typeDefs, resolvers });
-console.log(graphqlServer.graphqlPath);
 
 graphqlServer.applyMiddleware({ app });
 
