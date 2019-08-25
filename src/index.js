@@ -1,28 +1,11 @@
 import express from 'express';
-import { ApolloServer, gql } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 
 import db from './db';
+import typeDefs from './graphql/schema';
 
 const port = process.env.PORT || 3001;
 const app = express();
-
-const typeDefs = gql`
-  type Query {
-    hello: String,
-    nodeEnv: String,
-    bucketItems: [BucketItem],
-    bucketItem(id: ID!): BucketItem,
-  }
-
-  type BucketItem {
-    id: ID!,
-    title: String,
-    summary: String,
-    completed_at: String,
-    created_at: String,
-    updated_at: String,
-  }
-`;
 
 const resolvers = {
   Query: {
