@@ -9,6 +9,7 @@ const app = express();
 const typeDefs = gql`
   type Query {
     hello: String,
+    nodeEnv: String,
     bucketItems: [BucketItem],
     bucketItem(id: ID!): BucketItem,
   }
@@ -26,6 +27,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: () => 'Hello world from Apollo Server Express!',
+    nodeEnv: () => process.env.NODE_ENV,
     bucketItems: async () => {
       try {
         const data = await db.any('SELECT * FROM bucket_items');
