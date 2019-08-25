@@ -13,6 +13,7 @@ const typeDefs = gql`
   }
 
   type BucketItem {
+    id: ID,
     title: String,
     summary: String,
     completed_at: String,
