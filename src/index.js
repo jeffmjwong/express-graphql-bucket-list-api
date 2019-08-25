@@ -15,6 +15,9 @@ const typeDefs = gql`
   type BucketItem {
     title: String,
     summary: String,
+    completed_at: String,
+    created_at: String,
+    updated_at: String,
   }
 `;
 
