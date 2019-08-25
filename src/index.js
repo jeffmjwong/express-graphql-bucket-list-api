@@ -8,13 +8,36 @@ const app = express();
 
 const typeDefs = gql`
   type Query {
-    hello: String
+    hello: String,
+    bucketItems: [BucketItem],
+  }
+
+  type BucketItem {
+    title: String,
+    summary: String,
   }
 `;
 
 const resolvers = {
   Query: {
     hello: () => 'Hello world from Apollo Server Express!',
+    bucketItems: async () => {
+      try {
+        const data = await db.any('SELECT * FROM bucket_items');
+        console.log(data);
+        return data;
+      } catch(err) {
+        console.log(err);
+      }
+      // db.any('SELECT * FROM bucket_items')
+      //   .then(data => {
+      //     console.log(data);
+      //     return data;
+      //   })
+      //   .catch(error => {
+      //     console.log(err);
+      //   });
+    },
   },
 };
 
