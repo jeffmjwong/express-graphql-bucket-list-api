@@ -49,13 +49,14 @@ const graphqlServer = new ApolloServer({ typeDefs, resolvers });
 
 graphqlServer.applyMiddleware({ app });
 
+app.get('/', (req, res) => {
+  res.send('Welcome to Express and GraphQL server!');
+});
+
 app.listen(port, () => {
   console.log(`Express server is now ready at http://localhost:${port}${graphqlServer.graphqlPath}`);
 });
 
-// app.get('/', (req, res) => {
-//   res.send('Welcome to Express and GraphQL server!');
-// });
 
 // app.get('/node-env', (req, res) => {
 //   res.send(process.env.NODE_ENV);
