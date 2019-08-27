@@ -5,7 +5,7 @@ import db from './db';
 import typeDefs from './graphql/schema';
 
 const port = process.env.PORT || 3001;
-const app = express();
+const app = express()
 
 const resolvers = {
   Query: {
